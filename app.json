@@ -1,0 +1,13 @@
+{
+  "name": "aXsMD-BOT",
+  "description": "Lightweight WhatsApp Bot",
+  "repository": "https://github.com/ArdhiXs/aXsMD-BOT",
+  "logo": "https://telegra.ph/file/368a0ecf3e66c005fda41.jpg",
+  "keywords": ["bot", "whatsapp", "whatsapp-bot", "aXsMD-Bot"],
+  "buildpacks": [
+    {"url": "heroku/nodejs"},
+    {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"},
+    {"url": "https://github.com/mcollina/heroku-buildpack-imagemagick.git"},
+    {"url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"}
+  ]
+}
