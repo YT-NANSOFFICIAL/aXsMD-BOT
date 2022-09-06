@@ -9,9 +9,8 @@ let handler = function (m) {
 }})
 
 }
-handler.help = ['hapus', 'dell']
-handler.tags = ['menu']
-
+//handler.help = ['del']
+//handler.tags = ['menu']
 handler.command = /^del(ete)?$/i
 handler.group = true
 handler.admin = true
