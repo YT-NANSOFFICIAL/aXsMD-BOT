@@ -172,8 +172,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
         caption: text.trim(),
         buttons: [
           {buttonId: `.owner`, buttonText: {displayText: '🙍OWNER'}, type: "RESPONSE"},
-          {buttonId: `.donasi`, buttonText: {displayText: 'DONASI💰'}, type: "RESPONSE"},
-          {buttonId: `.script`, buttonText: {displayText: 'SCRIPT BOT'}, type: "RESPONSE"}
+          {buttonId: `.script`, buttonText: {displayText: 'SCRIPT🔗'}, type: "RESPONSE"}
         ],
         headerType: 'IMAGE',
   contextInfo: ArdhiXs
