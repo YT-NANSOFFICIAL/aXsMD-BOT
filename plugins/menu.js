@@ -163,8 +163,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                   mediaType: 30,
                   title: `ʜᴀɪ, ${name} ! 👋`,
                   body: wm,
-                  thumbnailUrl: urlinstagram,
-                  thumbnail: await(await fetch(thumbmenu)).buffer()
+                  thumbnailUrl: ``,
+                  thumbnail: fs.readFileSync(thumbmenu)
 
     } }
    return conn.sendMessage(m.chat, {
