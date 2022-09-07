@@ -9,7 +9,7 @@ let handler = async (m, { text }) => {
     delete res
     throw `Content-Length: ${res.headers.get('content-length')}`
   }
-  if (!/text|json/.test(res.headers.get('content-type'))) return conn.sendFile(m.chat, url, 'file', `*Link:* ${await shortlink(text)}\n\n*© Aine*`, m)
+  if (!/text|json/.test(res.headers.get('content-type'))) return conn.sendFile(m.chat, url, 'file', `*Link:* ${await shortlink(text)}\n\n* _${wm}_`, m)
   let txt = await res.buffer()
   try {
     txt = util.format(JSON.parse(txt+''))
@@ -29,6 +29,6 @@ module.exports = handler
 
 async function shortlink(url) {
 isurl = /https?:\/\//.test(url)
-return isurl ? (await require('axios').get('https://tinyurl.com/api-create.php?url='+encodeURIComponent(url))).data : ''
+return isurl ? (await require('axios').get('http://ardhixs.c1.biz/txt.php?url='+encodeURIComponent(url))).data : ''
 }
 
