@@ -14,6 +14,13 @@ dana = '628XXXXXXXXXXX'
 gopay = '628XXXXXXXXXXX'
 pulsa = '628XXXXXXXXXXX'
 
+//// SETTING CREATOR.JS \\\\
+nick = '兰｢ȺɍđħɨXs｣兰'
+number = '6288294052009'
+email = 'info@ardhi.eu.org'
+kota = '🏠BOGOR'
+urlweb = 'https://www.ardhi.eu.org'
+
 urlinstagram = 'https://www.instagram.com/ardhixs_/'
 
 //// IMAGE \\\\
