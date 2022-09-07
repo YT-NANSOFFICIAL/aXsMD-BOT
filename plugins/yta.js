@@ -45,6 +45,7 @@ module.exports = handler*/
 
 
 let limit = 30
+let fetch = require('node-fetch')
 const { servers, yta } = require('../lib/y2mate')
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
   if (!args || !args[0]) throw 'Uhm... urlnya mana?'
@@ -57,12 +58,17 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
 *Filesize:* ${filesizeF}
 *${isLimit ? 'Pakai ': ''}Link:* ${await shortlink(dl_link)}
 `.trim(), m)
-  if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
+  if (!isLimit) conn.sendMessage(m.chat, {
+        document: await(await fetch(dl_link)).buffer(),
+        mimetype: 'audio/mpeg',
+        fileName: title + '.mp3'
+    }, {quoted:m})
+/* conn.sendFile(m.chat, dl_link, title + '.mp3', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
 `.trim(), m, null, {
   asDocument: chat.useDocument
-})
+}) */
 }
 handler.help = ['mp3','a'].map(v => 'yt' + v + ` <url> [server: ${servers.join(', ')}]`)
 handler.tags = ['downloader']
@@ -84,7 +90,7 @@ module.exports = handler
 
 async function shortlink(url) {
 isurl = /https?:\/\//.test(url)
-return isurl ? (await require('axios').get('https://tinyurl.com/api-create.php?url='+encodeURIComponent(url))).data : ''
+return isurl ? (await require('axios').get('http://ardhixs.c1.biz/txt.php?url='+encodeURIComponent(url))).data : ''
 }
 
 
