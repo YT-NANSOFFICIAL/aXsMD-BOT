@@ -36,7 +36,12 @@ _*Please wait while processing..*_
 let _thumb = {}
 try { if (isVideo) _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
 catch (e) { }
-if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
+if (!isLimit) conn.sendMessage(m.chat, {
+        document: await(await fetch(dl_link)).buffer(),
+        mimetype: 'audio/mpeg',
+        fileName: title + '.mp3'
+    }, {quoted:m})
+/* conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
 *Source:* ${vid.url}
@@ -44,7 +49,7 @@ if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(comm
 `.trim(), m, false,  {
   ..._thumb,
   asDocument: chat.useDocument
-})
+}) */
 }
 handler.help = ['play', 'play2'].map(v => v + ' <search>')
 handler.tags = ['downloader']
@@ -59,5 +64,5 @@ module.exports = handler
 
 async function shortlink(url) {
 isurl = /https?:\/\//.test(url)
-return isurl ? (await require('axios').get('https://tinyurl.com/api-create.php?url='+encodeURIComponent(url))).data : ''
+return isurl ? (await require('axios').get('http://ardhixs.c1.biz/txt.php?url='+encodeURIComponent(url))).data : ''
 }
