@@ -17,7 +17,7 @@ pulsa = '628XXXXXXXXXXX'
 urlinstagram = 'https://www.instagram.com/ardhixs_/'
 
 //// IMAGE \\\\
-thumbmenu = 'https://telegra.ph/file/368a0ecf3e66c005fda41.jpg'
+thumbmenu = '/media/thumb.jpg'
 thumbmenu1 = 'https://telegra.ph/file/54bff157f5832a12ae132.jpg'
 
 APIs = { // API Prefix
