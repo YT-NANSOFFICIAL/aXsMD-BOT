@@ -10,7 +10,7 @@
 * Original script [`Aine MD`](https://github.com/Aiinne/Aine-MD)
 
 
-## [``Take session.data.json here``](https://replit.com/@ardhixsquerpans/zifSESSION-MD-1#README.md)
+## [``Take Session here``](https://replit.com/@ardhixsquerpans/zifSESSION-MD-1#README.md)
 
 ## ```Heroku Buildpack```
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ArdhiXs/aXsMD-BOT)
@@ -128,7 +128,7 @@ node .
 
 ### `--session <file name>`
 
-Use another session with another name, default is ```session.data.json```
+Use another session with another name, default is ```ArdhiXs.data.json```
 
 ### `--prefix <prefixes>`
 
