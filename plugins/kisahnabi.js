@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { text, usedPrefix, command }) => {
      if (!text) throw `Masukan nama nabi\nExample: ${usedPrefix + command} adam`
-     let url = await fetch(`https://github.com/ArdhiXs/My-SQL-Results/tree/main/kisahnabi/${text}.json`)
+     let url = await fetch(`https://raw.githubusercontent.com/ArdhiXs/My-SQL-Results/main/kisahnabi/${text}.json`)
      let kisah = await url.json()
      let hasil = `Nabi : ${kisah.name}\nTanggal Lahir : ${kisah.thn_kelahiran}\nTempat Lahir : ${kisah.tmp}\nUsia : ${kisah.usia}\nKisah : ${kisah.description}`
      conn.reply(m.chat, hasil, m)
