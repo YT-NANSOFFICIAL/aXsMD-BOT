@@ -1,3 +1,25 @@
+let fetch = require('node-fetch')
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `Link tiktoknya mana?\n\ncontoh:\n${usedPrefix}${command} https://m.facebook.com/`
+  let res = await fetch(`https://madangsek.my.id/facebook/?url=` + text)
+  let json = await res.json()
+  let aXs = `*Title*: ${json.title}\n*Size*: ${json.filesize}\n\n*Link*: ${await shortlink(json.videoUrl)}`
+  conn.sendFile(m.chat, json.videoUrl, 'ArdhiXs', aXs, m)
+}
+handler.help = ['facebook'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+handler.command = /^fb|facebook(dl|download)$/i
+
+handler.limit = true
+handler.group = true
+ 
+module.exports = handler
+
+
+async function shortlink(url) {
+isurl = /https?:\/\//.test(url)
+return isurl ? (await require('axios').get('http://ardhixs.c1.biz/txt.php?url='+encodeURIComponent(url))).data : ''
+}
 /*let fetch = require('node-fetch')
 const {
     MessageType
@@ -29,7 +51,7 @@ handler.premium = false
 module.exports = handler*/
 
 
-let fetch = require('node-fetch')
+/* let fetch = require('node-fetch')
 const {
     MessageType
 } = require('@adiwajshing/baileys')
@@ -56,4 +78,4 @@ handler.limit = true
 handler.group = true
 handler.premium = false
 
-module.exports = handler
+module.exports = handler */
