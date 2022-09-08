@@ -1,4 +1,21 @@
-let brainly = require("brainly-scraper")
+let fetch = require('node-fetch')
+let handler = async (m, { text, command, usedPrefix }) => {
+    if (!text) throw `uhm.. teksnya mana?\n\ncontoh:\n${usedPrefix + command} membaca`
+    let res = await fetch(`https://api.xteam.xyz/brainly?soal=${text}&APIKEY=cristian9407`)
+    if (!res.ok) throw eror
+    let json = await res.json()
+    if (!json.status) throw json
+    m.reply(json.jawaban)
+}
+handler.help = ['brainly <teks>']
+handler.tags = ['internet']
+handler.command = /^brainly$/i
+handler.limit = true
+
+module.exports = handler
+
+
+/* let brainly = require("brainly-scraper")
 let handler = async function (m, { text, usedPrefix, command }) {
 if (!text) return m.reply(`uhm.. soalnya mana?\n\ncontoh:\n${usedPrefix + command} apa itu javascript?`)
 let res = await brainly(text)
@@ -11,8 +28,7 @@ handler.tags = ['internet']
 handler.command = /^brainly$/i
 handler.limit = true
 
-module.exports = handler
-
+module.exports = handler */
 
 /*const Brainly = require('brainly-scraper-v2')
 const brain = new Brainly("id")
