@@ -21,10 +21,11 @@ Bonus: ${poin} XP
 TiketCoin: ${tiketcoin} Tiketcoin
 `.trim()
     conn.siapakahaku[id] = [
-        await conn.reply(m.chat, caption, m),
+        await conn.sendButton(m.chat, caption, wm, null, [['Bantuan', '.who']], m),
         json, poin,
         setTimeout(() => {
-            if (conn.siapakahaku[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.siapakahaku[id][0])
+            if (conn.siapakahaku[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, null, [['Siapakah Aku', '.siapaaku']], m)
+//conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.siapakahaku[id][0])
             delete conn.siapakahaku[id]
         }, timeout)
     ]
