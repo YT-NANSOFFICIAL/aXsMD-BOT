@@ -10,7 +10,7 @@ owner = [
 mods = [] // Want some help?
 prems = [] // Premium user has unlimited limit
 
-///// DONASI \\\\\
+///// DONASI.JS \\\\\
 DonateArdhiXs = `┏━━━〔 ıll *DONATE* llı 〕━━━❑
 ⬡ *DANA:* 628XXXXXXXXXXX
 ⬡ *GOPAY:* 628XXXXXXXXXXX
