@@ -9,10 +9,22 @@ owner = [
 ] // Put your number here
 mods = [] // Want some help?
 prems = [] // Premium user has unlimited limit
+
 ///// DONASI \\\\\
-dana = '628XXXXXXXXXXX'
-gopay = '628XXXXXXXXXXX'
-pulsa = '628XXXXXXXXXXX'
+DonateArdhiXs = `┏━━━〔 ıll *DONATE* llı 〕━━━❑
+⬡ *DANA:* 628XXXXXXXXXXX
+⬡ *GOPAY:* 628XXXXXXXXXXX
+⬡ *OVO:* 628XXXXXXXXXXX
+⬡ *PULSA:* 628XXXXXXXXXXX
+⬡ *LINKAJA:* 628XXXXXXXXXXX
+⬡ *SAWERIA:* https://saweria.com
+┗━━━━━━━━━━━━━━━━━━❑
+_“Sedekah itu dapat menghapus dosa sebagaimana air itu memadamkan api.”_
+_*(HR. At-Tirmidzi)*_
+
+_Terimakasih yang sudah mendonasikan untuk bot_
+Contact person Owner:
+wa.me/628XXXXXXXXXXX (Owner)`
 
 //// SETTING CREATOR.JS \\\\
 nick = '兰｢ȺɍđħɨXs｣兰'
