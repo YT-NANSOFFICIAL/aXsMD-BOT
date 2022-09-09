@@ -35,23 +35,28 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-Hai, %ucapan %name! 👋
-  
-*Waktu:* 
-%wib WIB
-%wita WITA
-%wit WIT
-*Hari:* %week
-*Tanggal:* %date
-*Uptime:* %uptime (%muptime)
-
-*Limit:* %limit
-*Level:* %level
-*XP:* %exp
+┎──────────────
+┃ Hai , %ucapan %name! 👋
+┠┄┄┄┄┄┄┄┄┄┄┄┄
+┃ *Waktu:* 
+┃ %wib WIB
+┃ %wita WITA
+┃ %wit WIT
+┃ *Hari:* %week %weton
+┃ *Tanggal:* %date
+┃ *Tanggal Islam:* %dateIslamic
+┃ *Uptime:* %uptime (%muptime)
+┃ *New Year:* %countdownapi
+┃
+┃ *Limit:* %limit
+┃ *Level:* %level
+┃ *XP:* %exp
+┖────────────
 %readmore`.trimStart(),
-  header: ' *%category*',
-  body: ' • %cmd %islimit %isPremium',
-  footer: '\n',
+  header: '╭─❑ 〔 *%category* 〕 ❑─\n┃',
+  body: '┣ %cmd %islimit %isPremium',
+  footer: '┃\n╰────────❑\n',
+  footerText: wm,
   after: `*Made by ♡*
 *%npmname* | %version
 ${'```%npmdesc```'}
@@ -102,6 +107,28 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    //━━━━━━━━[ COUNTDOWN API ]━━━━━━//
+    const hasilcdapi = await axios.get('http://www.ardhixs.my.id/api/countdown?tgl=1&bln=1&thn=2023')
+    let HitungMundurApi = `${hasilcdapi.data.result}`
+
+    //━━━━━━━━[ COUNTDOWN ]━━━━━━//
+    countDownDate = new Date("2022-04-03").getTime();
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var dayss = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hourss = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutess = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var secondss = Math.floor((distance % (1000 * 60)) / 1000);
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var dayss = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hourss = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutess = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var secondss = Math.floor((distance % (1000 * 60)) / 1000);
+    newYear = `${dayss}Hari ${hourss}Jam ${minutess}Menit ${secondss}Detik`
+    countDownDate = new Date("2022-04-03").getTime();
+    HitungMundur = `${dayss}Hari ${hourss}Jam ${minutess}Menit ${secondss}Detik`
+
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
@@ -145,6 +172,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       p: _p, uptime, muptime,
       me: conn.getName(conn.user.jid),
       ucapan: ucapan(),
+      countdownapi: HitungMundurApi,
       npmname: package.name,
       npmdesc: package.description,
       version: package.version,
