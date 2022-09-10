@@ -15,7 +15,7 @@ item3.X-ABLabel:asal kota
 item4.URL: ${urlweb}
 item4.X-ABLabel:Website
 END:VCARD`
-const sentMsg  = await conn.sendMessage(
+await conn.sendMessage(
     m.chat,
     { 
         contacts: { 
